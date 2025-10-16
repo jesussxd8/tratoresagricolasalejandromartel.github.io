@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+
+<meta content="Servicios profesionales agrícolas en Gran Canaria: arado, rotavator, plantación y más. Alejandro Martel." name="description"/>
+<meta content="tractores agrícolas, arado, plantación, rotavator, Gran Canaria, agricultura" name="keywords"/>
+<meta content="Alejandro Martel" name="author"/>
+<meta content="Tractores Agrícolas Alejandro Martel" property="og:title">
+<meta content="Servicios agrícolas con maquinaria moderna en Gran Canaria." property="og:description">
+<meta content="website" property="og:type">
+<meta content="Arado.png" property="og:image"/>
+<meta content="https://www.tractoresmartel.com" property="og:url"/>
+</meta></meta></meta><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tractores Agrícolas Alejandro Martel</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #2d2d2d;
+      background-color: #f9faf8;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.97);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 999;
+    }
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    nav img {
+      height: 55px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #2e7d32;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #1b5e20;
+    }
+
+    /* Botón menú móvil */
+    .menu-btn {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .menu-btn div {
+      width: 25px;
+      height: 3px;
+      background: #2e7d32;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .menu-btn.active div:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .menu-btn.active div:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-btn.active div:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Menú móvil */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 75px;
+        right: -100%;
+        flex-direction: column;
+        background: #fff;
+        width: 70%;
+        height: calc(100vh - 75px);
+        padding-top: 2rem;
+        transition: right 0.3s ease-in-out;
+        box-shadow: -4px 0 10px rgba(0,0,0,0.1);
+      }
+      .nav-links.active {
+        right: 0;
+      }
+      .nav-links a {
+        padding: 1rem;
+        font-size: 1.2rem;
+      }
+      .menu-btn {
+        display: flex;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
+        url('hero1.png') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 1rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    .hero a {
+      background: #2e7d32;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .hero a:hover {
+      background: #1b5e20;
+      transform: scale(1.05);
+    }
+
+    /* Secciones */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section h2 {
+      text-align: center;
+      color: #225a29;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    section h2::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: #2e7d32;
+      display: block;
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* Servicios */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .card-content h3 {
+      color: #2e7d32;
+      margin-bottom: 0.8rem;
+    }
+
+    /* Nosotros */
+    .nosotros {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nosotros img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .nosotros-text {
+      flex: 1;
+    }
+
+    /* Galería */
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .galeria img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+    .galeria img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Contacto */
+    .contacto {
+      text-align: center;
+    }
+    .contacto p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Botón WhatsApp en sección */
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #25d366;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.9rem 1.6rem;
+      border-radius: 50px;
+      margin-top: 1rem;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .whatsapp-btn:hover {
+      background-color: #1ebe5d;
+      transform: scale(1.05);
+    }
+    .whatsapp-btn svg {
+      fill: white;
+    }
+
+    /* Footer */
+    footer {
+      background: #1b4332;
+      color: #d4edda;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    /* Botón flotante */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.15);
+    }
+
+    /* Scroll animaciones */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    [data-animate].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+<header>
+<nav>
+<a href="#inicio"><img alt="Logo Tractores Agrícolas Alejandro Martel" loading="lazy" src="logo.png"/></a>
+<div class="menu-btn" id="menu-btn">
+<div></div><div></div><div></div>
+</div>
+<div class="nav-links" id="nav-links">
+<a href="#inicio">Inicio</a>
+<a href="#servicios">Servicios</a>
+<a href="#nosotros">Nosotros</a>
+<a href="#galeria">Galería</a>
+<a href="#contacto">Contacto</a>
+</div>
+</nav>
+</header>
+<!-- Hero -->
+
+<section class="hero" id="inicio">
+  <div class="slider">
+    <div class="slides">
+      <div class="slide"><img src="hero1.png" alt="Tractor John Deere en campo" loading="lazy"/></div>
+      <div class="slide"><img src="hero2.png" alt="Tractor Kubota trabajando" loading="lazy"/></div>
+      <div class="slide"><img src="hero3.png" alt="Trabajo agrícola al amanecer" loading="lazy"/></div>
+    </div>
+    <div class="slider-text">
+      <h1>Tractores Agrícolas <br> Alejandro Martel</h1>
+      <p>Servicios profesionales de arado, labranza y trabajos agrícolas con maquinaria moderna.</p>
+      <a href="#contacto">Contáctanos</a>
+    </div>
+  </div>
+</section>
+<style>
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slides {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  animation: slideAnimation 12s infinite;
+}
+.slide {
+  flex: 0 0 100%;
+  height: 100%;
+}
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.slider-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+  width: 90%;
+  max-width: 1000px;
+  padding: 1rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+.slider-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.slider-text p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .slider-text h1 {
+    font-size: 3.5rem;
+  }
+  .slider-text p {
+    font-size: 1.3rem;
+  }
+}
+@keyframes slideAnimation {
+  0%, 20% { transform: translateX(0%); }
+  25%, 45% { transform: translateX(-100%); }
+  50%, 70% { transform: translateX(-200%); }
+  75%, 100% { transform: translateX(0%); }
+}
+</style>
+
+<!-- Servicios -->
+<section id="servicios">
+<h2>Nuestros Servicios</h2>
+<div class="services">
+<div class="card" data-animate="">
+<img alt="Arado" loading="lazy" src="Arado.png"/>
+<div class="card-content">
+<h3>Arado</h3>
+<p>Preparación profesional del terreno con arado de alta precisión.</p>
+</div>
+</div>
+<div class="card" data-animate="">
+<img alt="Rotavator" loading="lazy" src="Rotavator.png"/>
+<div class="card-content">
+<h3>Rotavator</h3>
+<p>Roturación eficiente del suelo para optimizar la siembra.</p>
+</div>
+</div>
+<div class="card" data-animate="">
+<img alt="Plantación" loading="lazy" src="Plantación.png"/>
+<div class="card-content">
+<h3>Plantación</h3>
+<p>Servicio de plantación preciso para diferentes tipos de cultivos.</p>
+</div>
+</div>
+<div class="card" data-animate="">
+<img alt="Cojedora" loading="lazy" src="Cojedora.png"/>
+<div class="card-content">
+<h3>Cojedora</h3>
+<p>Recolección eficiente mediante maquinaria especializada.</p>
+</div>
+</div>
+<div class="card" data-animate="">
+<img alt="Susolador" loading="lazy" src="Susolador.png"/>
+<div class="card-content">
+<h3>Susolador</h3>
+<p>Rotura del subsuelo para mejorar el drenaje y la aireación.</p>
+</div>
+</div>
+<div class="card" data-animate="">
+<img alt="Cultivador" loading="lazy" src="Cultivador.png"/>
+<div class="card-content">
+<h3>Cultivador</h3>
+<p>Labranza entre líneas de cultivo para controlar malezas.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Nosotros -->
+<section id="nosotros">
+<h2>Sobre Nosotros</h2>
+<div class="nosotros">
+<img alt="Tractor trabajando en campo" data-animate="" loading="lazy" src="Nosotros.png"/>
+<div class="nosotros-text" data-animate="">
+<p>
+          En <strong>Tractores Agrícolas Alejandro Martel</strong> trabajamos con pasión y compromiso.
+          Contamos con más de <strong>25 años de experiencia</strong> ofreciendo servicios agrícolas
+          en toda la región. Nuestra prioridad es cuidar tu tierra y optimizar tu producción.
+        </p>
+</div>
+</div>
+</section>
+<!-- Galería -->
+<section id="galeria">
+<h2>Galería</h2>
+<div class="galeria" data-animate="">
+<img alt="Imagen relacionada con agricultura" loading="lazy" src="imagenes/galeria1.jpg"/>
+<img alt="Imagen relacionada con agricultura" loading="lazy" src="imagenes/galeria2.jpg"/>
+<img alt="Imagen relacionada con agricultura" loading="lazy" src="imagenes/galeria3.jpg"/>
+<img alt="Imagen relacionada con agricultura" loading="lazy" src="imagenes/galeria4.jpg"/>
+</div>
+</section>
+<!-- Contacto -->
+<section id="contacto">
+<h2>Contáctanos</h2>
+<div class="contacto" data-animate="">
+<p>📞 Teléfono: <strong>+34 696 57 61 41</strong></p>
+<p>📧 Email: <strong>info@tractoresmartel.com</strong></p>
+<p>📍 Ubicación: Pino Santo, Gran Canaria</p>
+<a class="whatsapp-btn" href="https://wa.me/34696576141?text=Hola%2C%20quiero%20información%20sobre%20los%20servicios%20agrícolas." target="_blank">
+<svg fill="currentColor" height="22" viewbox="0 0 32 32" width="22" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.11 17.52c-.31-.16-1.84-.91-2.12-1.02-.28-.1-.49-.16-.7.16-.21.31-.8 1.02-.98 1.22-.18.2-.36.23-.67.08-.31-.16-1.3-.48-2.47-1.52-.91-.81-1.53-1.8-1.71-2.1-.18-.31-.02-.47.13-.62.14-.14.31-.36.46-.54.15-.18.2-.31.31-.52.1-.21.05-.39-.03-.54-.08-.16-.7-1.69-.96-2.31-.25-.6-.5-.52-.7-.52-.18 0-.39-.03-.6-.03-.21 0-.54.08-.82.39-.28.31-1.08 1.05-1.08 2.56s1.11 2.96 1.26 3.16c.16.21 2.18 3.33 5.29 4.67.74.32 1.31.51 1.76.65.74.23 1.41.2 1.94.12.59-.09 1.84-.75 2.1-1.47.26-.72.26-1.34.18-1.47-.08-.13-.28-.21-.59-.37zm-3.1 6.31h-.01a8.76 8.76 0 0 1-4.45-1.22l-.32-.19-3.31.87.89-3.23-.21-.33a8.71 8.71 0 0 1-1.34-4.66c0-4.82 3.92-8.74 8.74-8.74 2.34 0 4.54.91 6.2 2.56a8.72 8.72 0 0 1 2.55 6.21c-.01 4.81-3.93 8.73-8.74 8.73zM26.92 5.08A13.93 13.93 0 0 0 16 0C7.18 0 0 7.18 0 16c0 2.82.74 5.57 2.15 7.99L0 32l8.25-2.16A15.9 15.9 0 0 0 16 32c8.82 0 16-7.18 16-16 0-3.73-1.27-7.29-3.59-10.08z"></path>
+</svg>
+        Escríbenos por WhatsApp
+      </a>
+</div>
+</section>
+<!-- Footer -->
+<footer>
+<p><strong>Tractores Agrícolas Alejandro Martel</strong></p>
+<p>© 2025 Todos los derechos reservados.</p>
+</footer>
+<!-- Botón flotante -->
+<a class="whatsapp-float" href="https://wa.me/34696576141?text=Hola%2C%20me%20gustaría%20saber%20más%20sobre%20tus%20servicios." target="_blank" title="WhatsApp">
+<svg fill="white" height="28" viewbox="0 0 32 32" width="28" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.11 17.52c-.31-.16-1.84-.91-2.12-1.02-.28-.1-.49-.16-.7.16-.21.31-.8 1.02-.98 1.22-.18.2-.36.23-.67.08-.31-.16-1.3-.48-2.47-1.52-.91-.81-1.53-1.8-1.71-2.1-.18-.31-.02-.47.13-.62.14-.14.31-.36.46-.54.15-.18.2-.31.31-.52.1-.21.05-.39-.03-.54-.08-.16-.7-1.69-.96-2.31-.25-.6-.5-.52-.7-.52-.18 0-.39-.03-.6-.03-.21 0-.54.08-.82.39-.28.31-1.08 1.05-1.08 2.56s1.11 2.96 1.26 3.16c.16.21 2.18 3.33 5.29 4.67.74.32 1.31.51 1.76.65.74.23 1.41.2 1.94.12.59-.09 1.84-.75 2.1-1.47.26-.72.26-1.34.18-1.47-.08-.13-.28-.21-.59-.37zm-3.1 6.31h-.01a8.76 8.76 0 0 1-4.45-1.22l-.32-.19-3.31.87.89-3.23-.21-.33a8.71 8.71 0 0 1-1.34-4.66c0-4.82 3.92-8.74 8.74-8.74 2.34 0 4.54.91 6.2 2.56a8.72 8.72 0 0 1 2.55 6.21c-.01 4.81-3.93 8.73-8.74 8.73zM26.92 5.08A13.93 13.93 0 0 0 16 0C7.18 0 0 7.18 0 16c0 2.82.74 5.57 2.15 7.99L0 32l8.25-2.16A15.9 15.9 0 0 0 16 32c8.82 0 16-7.18 16-16 0-3.73-1.27-7.29-3.59-10.08z"></path>
+</svg>
+</a>
+<script>
+    // Animaciones scroll
+    const animElements = document.querySelectorAll('[data-animate]');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    animElements.forEach(el => observer.observe(el));
+
+    // Menú responsive
+    const menuBtn = document.getElementById('menu-btn');
+    const navLinks = document.getElementById('nav-links');
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuBtn.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
